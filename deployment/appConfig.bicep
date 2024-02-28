@@ -46,12 +46,7 @@ module configurationStore '../src/modules/app-configuration/configuration-store/
         // https://www.iana.org/assignments/media-types/media-types.xhtml
         contentType: 'application/json'
         name: 'privateEndpointSubnets'
-        value: '''
-          {
-            "pbc-shared-dev": "resourceid for pbc-shared-dev",
-            "pbc-shared-test": "resourceid for pbc-shared-test"
-          }
-        '''
+        value: loadTextContent('config/privateEndpointSubnets.json')
       }
     ]
     softDeleteRetentionInDays: 1

@@ -43,7 +43,7 @@ resource privateEndpointSubnets 'Microsoft.AppConfiguration/configurationStores/
 var privateEndpointSubnetsVars = json(privateEndpointSubnets.properties.value)
 
 @description('The name of the app configuration keyValue.')
-output devPrivateEndpointsubnet string = privateEndpointSubnetsVars['pbc-shared-dev']
+output devPrivateEndpointSubnetWestUS2 string = privateEndpointSubnetsVars['pbc-shared-dev'].westus2
 
 @description('The name of the app configuration keyValue.')
-output testPrivateEndpointsubnet string = privateEndpointSubnetsVars['pbc-shared-test']
+output testPrivateEndpointSubnetSouthCentralUS string = privateEndpointSubnetsVars['pbc-shared-test'].southcentralus

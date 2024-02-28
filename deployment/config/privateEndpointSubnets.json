@@ -1,0 +1,10 @@
+{
+    "pbc-shared-dev": {
+      "westus2": "resourceid for pbc-shared-dev westus2",
+      "southcentralus": "resourceid for pbc-shared-dev southcentralus"
+    },
+    "pbc-shared-test":  {
+      "westus2": "resourceid for pbc-shared-test westus2",
+      "southcentralus": "resourceid for pbc-shared-test southcentralus"
+    }
+  }
