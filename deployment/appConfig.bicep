@@ -38,6 +38,7 @@ module configurationStore '../src/modules/app-configuration/configuration-store/
   params: {
     name: name
     location: resourceLocation
+    sku: 'Free'
     createMode: 'Default'
     disableLocalAuth: false
     enablePurgeProtection: false
@@ -48,14 +49,23 @@ module configurationStore '../src/modules/app-configuration/configuration-store/
         name: 'privateEndpointSubnets'
         value: loadTextContent('config/privateEndpointSubnets.json')
       }
+      {
+        // https://www.iana.org/assignments/media-types/media-types.xhtml
+        contentType: 'application/json'
+        name: 'vmSubnets'
+        value: loadTextContent('config/vmSubnets.json')
+      }
     ]
-    softDeleteRetentionInDays: 1
     tags: {
       Environment: 'Non-Prod'
       Role: 'DeploymentValidation'
     }
   }
 }
+
+// ============== //
+// Outputs        //
+// ============== //
 
 @description('The name of the app configuration.')
 output name string = configurationStore.outputs.name

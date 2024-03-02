@@ -39,11 +39,17 @@ resource privateEndpointSubnets 'Microsoft.AppConfiguration/configurationStores/
   parent: appConfiguration
 }
 
-@description('The name of the app configuration keyValue.')
-var privateEndpointSubnetsVars = json(privateEndpointSubnets.properties.value)
+resource vmSubnets 'Microsoft.AppConfiguration/configurationStores/keyValues@2023-03-01' existing = {
+  name: 'privateEndpointSubnets'
+  parent: appConfiguration
+}
+
+// ============== //
+// Outputs        //
+// ============== //
 
 @description('The name of the app configuration keyValue.')
-output devPrivateEndpointSubnetWestUS2 string = privateEndpointSubnetsVars['pbc-shared-dev'].westus2
+output privateEndpointSubnetsObj object = json(privateEndpointSubnets.properties.value)
 
 @description('The name of the app configuration keyValue.')
-output testPrivateEndpointSubnetSouthCentralUS string = privateEndpointSubnetsVars['pbc-shared-test'].southcentralus
+output vmSubnetsObj object = json(vmSubnets.properties.value)
